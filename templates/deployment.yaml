@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: {{ $fullname }}
-  name: {{ $fullname }}
+metadata: {{ .Chart.Name}}
+  name: {{ .Chart.Name }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
