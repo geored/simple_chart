@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: {{ $fullname := printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" }}
+metadata: {{ $fullname }}
   name: {{ $fullname }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
@@ -17,6 +17,6 @@ spec:
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.deployment.image }}"
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Allways
         ports:
         - containerPort: {{ .Values.deployment.containerPort | int }}
