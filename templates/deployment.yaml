@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: {{ .Chart.Name}}
-  name: {{ .Chart.Name }}
+metadata: "{{ .Values.name }}"
+  name: "{{ .Values.name }}"
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: "{{ .Values.name }}"
   replicas: {{ default 1 .Values.deployment.replicaCount | int }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        app: "{{ .Values.name }}"
     spec:
       containers:
-      - name: {{ .Chart.Name }}
+      - name: "{{ .Values.name }}"
         image: "{{ .Values.deployment.image }}"
         imagePullPolicy: Allways
         ports:
