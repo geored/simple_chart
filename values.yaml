@@ -1,6 +1,6 @@
 name: simple-chart
 deployment:
-  image: quay.io/geored/spmm-otel-contrib
+  image: quay.io/geored/spmm-collector-contrib
   tag: latest
   containerPort: 80
   replicaCount: 1
